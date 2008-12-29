@@ -1,0 +1,59 @@
+      body {
+        margin: 0;
+        margin-bottom: 25px;
+        padding: 0;
+        background-color: #f0f0f0;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #333;
+      }
+      
+      h1 {
+        font-size: 28px;
+        color: #000;
+      }
+      
+      a  {color: #03c}
+      a:hover {
+        background-color: #03c;
+        color: white;
+        text-decoration: none;
+      }
+      
+      
+      #page {
+        background-color: #f0f0f0;
+        width: 55em;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      div.sidebar {
+  float: right;
+  width: 19em;
+      }
+
+      div.file {
+  width: 30em;
+  margin: 3em;
+  border: 2px solid grey;
+      }
+
+      div.code {
+  background-color: black;
+      }
+
+      div.code ol {
+  width: 90%;
+  margin: 0;
+  padding-left: 10%;
+  text-align: left;
+  color: white;
+      }
+
+      div.code div.lines {
+  width: 95%;
+  background-color: black;
+  color: white;
+      }

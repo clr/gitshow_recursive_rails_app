@@ -1,0 +1,50 @@
+%html
+  %head
+    %meta{ 'http-equiv'.to_sym => "Content-type", :content => "text/html; charset=utf-8" }
+    %title Comp in Haml
+    %link{ :rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css", :media => "screen" }
+  %body
+    #page
+      .sidebar
+        %ul
+          %li
+            %a Commit #0
+            %p Commit Message
+          %li
+            %a Commit #1
+            %p Commit Message
+          %li
+            %a Commit #2
+            %p Commit Message
+      .content
+        .file
+          %h3 File Name0
+          .code
+            %ol
+              %li
+                .line Diff line 1 here.
+              %li
+                .line Diff line 2 here.
+              %li
+                .line Diff line 3 here.
+        .file
+          %h3 File Name1
+          .code
+            %ol
+              %li
+                .line Diff line 1 here.
+              %li
+                .line Diff line 2 here.
+              %li
+                .line Diff line 3 here.
+        .file
+          %h3 File Name2
+          .code
+            %ol
+              %li
+                .line Diff line 1 here.
+              %li
+                .line Diff line 2 here.
+              %li
+                .line Diff line 3 here.
+
