@@ -1,45 +1,27 @@
 %html
   %head
     %meta{ 'http-equiv'.to_sym => "Content-type", :content => "text/html; charset=utf-8" }
-    %title Comp in Haml
+    %title 
+      = @current_commit.message[0..19] + "..."
     %link{ :rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css", :media => "screen" }
   %body
     #page
       .sidebar
         %ul
+        - @commits.each do |commit|
           %li
-            %a Commit #0
-            %p Commit Message
-          %li
-            %a Commit #1
-            %p Commit Message
-          %li
-            %a Commit #2
-            %p Commit Message
+            %a{ :href => commit.id } 
+              = commit.id[0..9] + "..."
+            %p
+              = commit.message.gsub( '`', '_' )
       .content
+      - @blobs.each do |blob|
         .file
-          %h3 File Name0
+          %h3
+            = blob.name
           .code
-            %ol
-              %li
-                .line Diff line 1 here.
-              %li
-                .line Diff line 2 here.
-              %li
-                .line Diff line 3 here.
-        .file
-          %h3 File Name1
-          .code
-            %ol
-              %li
-                .line Diff line 1 here.
-              %li
-                .line Diff line 2 here.
-              %li
-                .line Diff line 3 here.
-        .file
-          %h3 File Name2
-          .code
+            %p
+              = blob.data
             %ol
               %li
                 .line Diff line 1 here.

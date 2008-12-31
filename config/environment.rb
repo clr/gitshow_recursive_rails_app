@@ -11,3 +11,27 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
   config.action_controller.session = false
 end
+
+module Grit
+
+  class Commit
+    
+    # These comparisons are particularly important in the specs.
+    def ==( object )
+      ( object.respond_to?( :id ) && object.id == self.id )
+    end
+    alias_method 'eql?', '=='
+
+  end
+
+  class Blob
+    
+    # These comparisons are particularly important in the specs.
+    def ==( object )
+      ( object.respond_to?( :id ) && object.id == self.id )
+    end
+    alias_method 'eql?', '=='
+
+  end
+
+end
