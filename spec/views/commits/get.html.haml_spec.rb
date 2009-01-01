@@ -8,7 +8,7 @@ describe "/commits/get" do
     @current_commit.stub!( :message ).and_return( 'blah...' )
     assigns[ :commits ] = []
     assigns[ :current_commit ] = @current_commit
-    assigns[ :blobs ] = []
+    assigns[ :diffs ] = []
   end
   
   it "should have the two main panels on every page" do

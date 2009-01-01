@@ -7,7 +7,7 @@ class CommitsController < ApplicationController
     else
       @current_commit = Repo.instance.commits.first
     end
-    @blobs = @current_commit.tree.contents.select{ |node| node.is_a?( Grit::Blob ) }
+    @diffs = @current_commit.diffs
   end
 
 end

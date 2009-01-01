@@ -34,4 +34,17 @@ module Grit
 
   end
 
+  class Diff
+    
+    # These comparisons are particularly important in the specs.
+    def ==( object )
+      ( object.respond_to?( :a_commit ) &&
+        object.respond_to?( :b_commit ) &&
+        ( object.a_commit == self.a_commit ) &&
+        ( object.b_commit == self.b_commit ) )
+    end
+    alias_method 'eql?', '=='
+
+  end
+
 end

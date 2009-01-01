@@ -31,11 +31,11 @@ describe CommitsController do
       assigns( :current_commit ).should eql( commit )
     end
     
-    it "should have assign the changes in that commit to @blobs" do
+    it "should have assign the changes in that commit to @diffs" do
       commit = Repo.instance.commits.first
-      blobs = commit.tree.contents.select{ |node| node.is_a?( Grit::Blob ) }
+      diffs = commit.diffs
       get 'get'
-      assigns( :blobs ).should eql( blobs )
+      assigns( :diffs ).should eql( diffs )
     end
 
   end

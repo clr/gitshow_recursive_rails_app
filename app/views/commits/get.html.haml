@@ -8,25 +8,23 @@
     #page
       .sidebar
         %ul
-        - @commits.each do |commit|
-          %li
-            %a{ :href => commit.id } 
-              = commit.id[0..9] + "..."
-            %p
-              = commit.message.gsub( '`', '_' )
+          - @commits.each do |commit|
+            %li
+              %a{ :href => commit.id } 
+                = commit.id[0..9] + "..."
+              %p
+                = commit.message
       .content
-      - @blobs.each do |blob|
-        .file
-          %h3
-            = blob.name
-          .code
-            %p
-              = blob.data
-            %ol
-              %li
-                .line Diff line 1 here.
-              %li
-                .line Diff line 2 here.
-              %li
-                .line Diff line 3 here.
+        - @diffs.each do |diff|
+          .file
+            %h3
+              = diff.b_path
+            .code
+              %ol
+                - diff_lines = diff.diff.split( "\n" )
+                - diff_lines[ 3, diff_lines.length ].each do |line|
+                  %li
+                    .line
+                      %pre
+                        = line
 
