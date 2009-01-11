@@ -13,8 +13,6 @@ describe "/commits/get" do
   
   it "should have the two main panels on every page" do
     render 'commits/get'
-#    response.should have_tag( 'div.sidebar li' )
-#    response.should have_tag( 'div.file div.code li' )
   end
 end
 

@@ -4,6 +4,7 @@
     %title 
       = @current_commit.message[0..19] + "..."
     %link{ :rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css", :media => "screen" }
+    = javascript_include_tag :defaults
   %body
     #page
       .sidebar
@@ -18,13 +19,8 @@
         - @diffs.each do |diff|
           .file
             %h3
+              = link_to_function image_tag( 'patch.png', :border => '0' ), "$( this ).parent().next().toggle()"
               = diff.b_path
-            .code
-              %ol
-                - diff_lines = diff.diff.split( "\n" )
-                - diff_lines[ 0, diff_lines.length ].each do |line|
-                  %li
-                    .line
-                      %pre
-                        = line
+            .code{ :style => 'display:none' }
+              = diff_to_html diff.diff
 

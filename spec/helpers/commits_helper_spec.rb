@@ -1,6 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe CommitsHelper do
+  include CommitsHelper
   
   def example_diff
 <<-EOD
@@ -18,23 +19,6 @@ This is line 4.
 EOD
   end
 
-  def desired_example_diff_html
-<<-EOD
-<div class="code">
-<ul>
-<li><div class="line"><pre>Lines of text follow</pre></div></li>
-<li><div class="line"><pre></pre></div></li>
-<li><div class="line"><pre>This is line 1.</pre></div></li>
-<li><div class="line old"><pre>This is line B.</pre></div></li>
-<li><div class="line old"><pre>This is line C.</pre></div></li>
-<li><div class="line new"><pre>This is line 2.</pre></div></li>
-<li><div class="line new"><pre>This is line 3.</pre></div></li>
-<li><div class="line"><pre>This is line 4.</pre></div></li>
-</ul>
-</div>
-EOD
-  end
-
 # Useless, but I like this test.
   it "should be included in the object returned by #helper" do
     included_modules = (class << helper; self; end).send :included_modules
@@ -42,7 +26,48 @@ EOD
   end
   
   it "should take a diff and make a formatted code snippet" do
-    diff_to_html( example_diff ).should eql( desired_example_diff_html )
+    diff_to_html( example_diff ).should have_tag( 'table' ) do
+      with_tag( 'tr' ) do
+        with_tag( 'td', '4' )
+        with_tag( 'td', '4' )
+        with_tag( 'td', '<pre>Lines of text follow</pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '5' )
+        with_tag( 'td', '5' )
+        with_tag( 'td', '<pre></pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '6' )
+        with_tag( 'td', '6' )
+        with_tag( 'td', '<pre>This is line 1.</pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '7' )
+        with_tag( 'td', '&nbsp;' )
+        with_tag( 'td', '<pre>This is line B.</pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '8' )
+        with_tag( 'td', '&nbsp;' )
+        with_tag( 'td', '<pre>This is line C.</pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '&nbsp;' )
+        with_tag( 'td', '7' )
+        with_tag( 'td', '<pre>This is line 2.</pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '&nbsp;' )
+        with_tag( 'td', '8' )
+        with_tag( 'td', '<pre>This is line 3.</pre>' )
+      end
+      with_tag( 'tr' ) do
+        with_tag( 'td', '9' )
+        with_tag( 'td', '9' )
+        with_tag( 'td', '<pre>This is line 4.</pre>' )
+      end
+    end
   end
 
 end

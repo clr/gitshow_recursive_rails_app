@@ -44,6 +44,44 @@
   background-color: black;
       }
 
+  div.code table {
+    border-collapse: true;
+    border-spacing: 0;
+    border: 0;
+  }
+  div.code table tr:hover td {
+    background-color: white;
+    color: black;
+  }
+  td.line_number {
+    text-align: right;
+    border: 0;
+    border-right: 1px solid #666;
+    padding: 0 0.2em;
+    font-size: 0.9em;
+  }
+  tr.normal {
+    background-color: black;
+    color: #999;
+  }
+  tr.normal td.line_number {
+  }
+  tr.plus {
+    background-color: #000020;
+    color: #ccd;
+  }
+  tr.plus td.line_number {
+    font-weight: bold;
+  }
+  tr.minus {
+    background-color: #200000;
+    color: #899;
+  }
+  tr.minus td.line_number {
+  }
+  td pre {
+    margin: 0px;
+  }
       div.code ol {
   width: 90%;
   margin: 0;
