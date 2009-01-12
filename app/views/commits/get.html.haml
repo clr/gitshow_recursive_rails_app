@@ -6,21 +6,29 @@
     %link{ :rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css", :media => "screen" }
     = javascript_include_tag :defaults
   %body
-    #page
-      .sidebar
-        %ul
-          - @commits.each do |commit|
-            %li
-              %a{ :href => url_for( :controller => 'commits', :action => 'get', :id => commit.id ) } 
-                = commit.id[0..9] + "..."
-              %p
-                = commit.message
-      .content
-        - @diffs.each do |diff|
-          .file
-            %h3
-              = link_to_function image_tag( 'patch.png', :border => '0' ), "$( this ).parent().next().toggle()"
-              = diff.b_path
-            .code{ :style => 'display:none' }
-              = diff_to_html diff.diff
+    .toolbar
+      .buttons
+        %a.first
+        %a.previous
+        %a.next
+        %a.last
+    .content
+      %p
+        %strong message:
+        = @current_commit.message
+      - @diffs.each do |diff|
+        .file
+          %h3.file
+            = link_to_function image_tag( 'script_code_red.png', :border => '0' ), "$( this ).parent().next().toggle()"
+            = diff.b_path
+          .code{ :style => 'display:none' }
+            = diff_to_html diff.diff
+    .sidebar
+      %ul
+        - @commits.each do |commit|
+          %li
+            %a{ :href => url_for( :controller => 'commits', :action => 'get', :id => commit.id ) } 
+              = commit.id[0..9] + "..."
+            %p
+              = commit.message
 

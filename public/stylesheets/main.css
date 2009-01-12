@@ -15,19 +15,72 @@
       
       a  {color: #03c}
       a:hover {
-        background-color: #03c;
+//        background-color: #03c;
         color: white;
         text-decoration: none;
       }
       
       
-      #page {
-        background-color: #f0f0f0;
-        width: 55em;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
-      }
+  div.content {
+    position: absolute;
+    top: 36px;
+    left: 0px;
+    width: 100%;
+    background-color: #f0f0f0;
+  }
+
+  div.content p {
+    padding: 0 3em 0.4em;
+  }
+
+  div.toolbar {
+    width: 100%;
+    height: 36px;
+    position: absolute;
+    top: 0px;
+    background: url(/images/toolbar.png) repeat-x;
+  }
+
+  div.buttons {
+    position: absolute;
+    top: 5px;
+    right: 75px;
+  }
+  div.buttons a {
+    position: absolute;
+    top: 3px;
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+  div.buttons a.first {
+    left: 1px;
+    background: url(/images/button_first.png) no-repeat;  
+  }
+  div.buttons a.first:hover {
+    background: url(/images/button_first_hover.png) no-repeat;  
+  }
+  div.buttons a.previous {
+    left: 18px;
+    background: url(/images/button_previous.png) no-repeat;  
+  }
+  div.buttons a.previous:hover {
+    background: url(/images/button_previous_hover.png) no-repeat;  
+  }
+  div.buttons a.next {
+    left: 35px;
+    background: url(/images/button_next.png) no-repeat;  
+  }
+  div.buttons a.next:hover {
+    background: url(/images/button_next_hover.png) no-repeat;  
+  }
+  div.buttons a.last {
+    left: 52px;
+    background: url(/images/button_last.png) no-repeat;  
+  }
+  div.buttons a.last:hover {
+    background: url(/images/button_last_hover.png) no-repeat;  
+  }
 
       div.sidebar {
   float: right;
@@ -35,16 +88,29 @@
       }
 
       div.file {
-  width: 30em;
-  margin: 3em;
-  border: 2px solid grey;
+  width: 96%;
+  margin: 0 2%;
       }
 
-      div.code {
-  background-color: black;
-      }
+  h3.file {
+    height: 22px;
+    margin-bottom: 0;
+    border: 1px outset black;
+    padding: 3px 4px 0px 5px;
+    background: url(/images/tab.png) repeat-x;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  
+  h3.file a {
+    float: right;
+    margin-top: 1px;
+    display: block;
+  }
 
   div.code table {
+    width: 96%;
+    margin: 0 2%;
     border-collapse: true;
     border-spacing: 0;
     border: 0;
