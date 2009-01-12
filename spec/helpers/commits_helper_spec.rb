@@ -30,42 +30,58 @@ EOD
       with_tag( 'tr' ) do
         with_tag( 'td', '4' )
         with_tag( 'td', '4' )
-        with_tag( 'td', '<pre>Lines of text follow</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'Lines of text follow' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '5' )
         with_tag( 'td', '5' )
-        with_tag( 'td', '<pre></pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', '' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '6' )
         with_tag( 'td', '6' )
-        with_tag( 'td', '<pre>This is line 1.</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'This is line 1.' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '7' )
         with_tag( 'td', '&nbsp;' )
-        with_tag( 'td', '<pre>This is line B.</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'This is line B.' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '8' )
         with_tag( 'td', '&nbsp;' )
-        with_tag( 'td', '<pre>This is line C.</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'This is line C.' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '&nbsp;' )
         with_tag( 'td', '7' )
-        with_tag( 'td', '<pre>This is line 2.</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'This is line 2.' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '&nbsp;' )
         with_tag( 'td', '8' )
-        with_tag( 'td', '<pre>This is line 3.</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'This is line 3.' )
+        end
       end
       with_tag( 'tr' ) do
         with_tag( 'td', '9' )
         with_tag( 'td', '9' )
-        with_tag( 'td', '<pre>This is line 4.</pre>' )
+        with_tag( 'td' ) do
+          with_tag( 'pre', 'This is line 4.' )
+        end
       end
     end
   end

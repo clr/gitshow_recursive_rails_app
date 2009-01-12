@@ -5,8 +5,25 @@
       = @current_commit.message[0..19] + "..."
     %link{ :rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css", :media => "screen" }
     = javascript_include_tag :defaults
+  :javascript
+    $( function(){  
+      var select   = $( '#commit_selector' );
+      var options  = $( '#commit_selector > option' );
+      var button   = $( "<div class='commit_selector'>commits</div>" );
+      var selector = $( "<ul class='commit_selector'></ul>" );
+      options.each( function( i, option ){ 
+        option = $( option );
+        selector.append( "<li><a href='#' onclick='document.location=\"" + option.attr( 'id' ) + "\"'>" + option.html() + "</a></li>" );
+      } );
+      select.replaceWith( div );
+      selector.appendAfter( div );
+    } );
   %body
     .toolbar
+      %select#commit_selector
+        - @commits.each do |commit|
+          %option{ :id => commit.id }
+            = commit.message
       .buttons
         %a.first
         %a.previous
@@ -23,12 +40,4 @@
             = diff.b_path
           .code{ :style => 'display:none' }
             = diff_to_html diff.diff
-    .sidebar
-      %ul
-        - @commits.each do |commit|
-          %li
-            %a{ :href => url_for( :controller => 'commits', :action => 'get', :id => commit.id ) } 
-              = commit.id[0..9] + "..."
-            %p
-              = commit.message
 

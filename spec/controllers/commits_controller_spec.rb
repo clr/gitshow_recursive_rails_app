@@ -31,8 +31,8 @@ describe CommitsController do
       assigns( :current_commit ).should eql( commit )
     end
     
-    it "should have assign the changes in that commit to @diffs" do
-      commit = Repo.instance.commits.last
+    it "should have assigned the changes in that commit to @diffs" do
+      commit = Repo.instance.commits.first
       diffs = commit.diffs
       get 'get'
       assigns( :diffs ).should eql( diffs )
