@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe CommitsHelper do
-  include CommitsHelper
+describe GitshowHelper do
+  include GitshowHelper
   
   def example_diff
 <<-EOD
@@ -22,7 +22,7 @@ EOD
 # Useless, but I like this test.
   it "should be included in the object returned by #helper" do
     included_modules = (class << helper; self; end).send :included_modules
-    included_modules.should include(CommitsHelper)
+    included_modules.should include( GitshowHelper )
   end
   
   it "should take a diff and make a formatted code snippet" do
