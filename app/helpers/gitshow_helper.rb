@@ -1,4 +1,4 @@
-module CommitsHelper
+module GitshowHelper
 
   def diff_to_html( diff )
     rows = []

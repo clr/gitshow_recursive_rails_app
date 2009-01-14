@@ -1,4 +1,4 @@
-class Repo
+class Gitshow
   include Singleton
   
   def location

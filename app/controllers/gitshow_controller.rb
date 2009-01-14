@@ -1,11 +1,11 @@
-class CommitsController < ApplicationController
+class GitshowController < ApplicationController
 
   def get
-    @commits = Repo.instance.commits.reverse
+    @commits = Gitshow.instance.commits.reverse
     @first_commit = @commits.first
     @last_commit = @commits.last
     if ( params[:id] && !params[:id].empty? )
-      @current_commit = Repo.instance.commit( params[:id] )
+      @current_commit = Gitshow.instance.commit( params[:id] )
     else
       @current_commit = @first_commit
     end

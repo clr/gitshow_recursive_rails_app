@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe CommitsController do
+describe GitshowController do
 
   describe "GET 'get'" do
 
@@ -19,7 +19,7 @@ describe CommitsController do
     end
 
     it "if no param[:id] is set, then it should assign the first commit to @current_commit" do
-      commit = Repo.instance.commits.first
+      commit = Repo.instance.commits.reverse.first
       get 'get'
       assigns( :current_commit ).should eql( commit )
     end
