@@ -1,211 +1,182 @@
-      body {
-        margin: 0;
-        margin-bottom: 25px;
-        padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
-      }
-      
-      h1 {
-        font-size: 28px;
-        color: #000;
-      }
-      
-      a  {color: #03c}
-      a:hover {
-//        background-color: #03c;
-        color: white;
-        text-decoration: none;
-      }
-      
-      
-  div.content {
-    position: absolute;
-    top: 36px;
-    left: 0px;
-    width: 100%;
-    background-color: #f0f0f0;
-  }
+body {
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0;
+  background-color: #f0f0f0;
+  font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+  font-size: 13px;
+  color: #333;
+}
+    
+div.content {
+  position: absolute;
+  top: 36px;
+  left: 0px;
+  width: 100%;
+  background-color: #f0f0f0;
+}
 
-  div.content p {
-    padding: 0 3em 0.4em;
-  }
+div.content p {
+  padding: 0 3em 0.4em;
+}
 
-  div.toolbar {
-    width: 100%;
-    height: 36px;
-    position: fixed;
-    top: 0px;
-    background: url(/images/toolbar.png) repeat-x;
-  }
+div.toolbar {
+  width: 100%;
+  height: 36px;
+  position: fixed;
+  top: 0px;
+  background: #f0f0f0 url(/images/toolbar.png) repeat-x;
+}
 
-  div.commit_selector {
-    position: absolute;
-    top: 5px;
-    right: 80px;
-    width: 144px;
-    height: 16px;
-    border: 1px ridge #aaa;
-    padding-top: 4px;
-    text-align: center;
-    font-size: 0.8em;
-  }
+div.commit_selector {
+  position: absolute;
+  top: 5px;
+  right: 80px;
+  width: 144px;
+  height: 16px;
+  border: 1px ridge #aaa;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 0.8em;
+}
 
-  div.commit_selector:hover {
-    background-color: d9d9da;
-    cursor: pointer;
-  }
-  
-  ul.commit_selector {
-    position: absolute;
-    top: 21px;
-    right: 0px;
-    width: 224px;
-    border: 1px solid #aaa;
-    padding: 0px;
-    list-style: none;
-    background-color: e0e0e2;
-  }
-  
-  ul.commit_selector li {
-    border: 1px solid #aaa;
-    border-bottom: 1px solid #bbb;
-    padding: 0.2em 0.5em 0.35em;
-  }
+div.commit_selector:hover {
+  background-color: d9d9da;
+  cursor: pointer;
+}
 
-  ul.commit_selector li:hover {
-    border: 1px outset #aaa;
-    background-color: d9d9da;
-  }
+ul.commit_selector {
+  position: absolute;
+  top: 21px;
+  right: 0px;
+  width: 224px;
+  height: 32em;
+  border: 1px solid #aaa;
+  padding: 0px;
+  list-style: none;
+  background-color: e0e0e2;
+  overflow-y: scroll;
+}
 
-  ul.commit_selector li a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    font-size: 0.9em;
-    text-decoration: none;
-    color: black;
-  }
+ul.commit_selector li {
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #bbb;
+  padding: 0.2em 0.5em 0.35em;
+}
 
-  div.buttons {
-    position: absolute;
-    top: 5px;
-    right: 75px;
-  }
-  div.buttons a {
-    position: absolute;
-    top: 3px;
-    display: block;
-    width: 16px;
-    height: 16px;
-  }
-  div.buttons a.first {
-    left: 1px;
-    background: url(/images/button_first.png) no-repeat;  
-  }
-  div.buttons a.first:hover {
-    background: url(/images/button_first_hover.png) no-repeat;  
-  }
-  div.buttons a.previous {
-    left: 18px;
-    background: url(/images/button_previous.png) no-repeat;  
-  }
-  div.buttons a.previous:hover {
-    background: url(/images/button_previous_hover.png) no-repeat;  
-  }
-  div.buttons a.next {
-    left: 35px;
-    background: url(/images/button_next.png) no-repeat;  
-  }
-  div.buttons a.next:hover {
-    background: url(/images/button_next_hover.png) no-repeat;  
-  }
-  div.buttons a.last {
-    left: 52px;
-    background: url(/images/button_last.png) no-repeat;  
-  }
-  div.buttons a.last:hover {
-    background: url(/images/button_last_hover.png) no-repeat;  
-  }
+ul.commit_selector li:hover {
+  border: 1px outset #aaa;
+  background-color: d9d9da;
+}
 
-      div.sidebar {
-  float: right;
-  width: 19em;
-      }
+ul.commit_selector li a {
+  display: block;
+  width: 100%;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: black;
+}
 
-      div.file {
+div.buttons {
+  position: absolute;
+  top: 5px;
+  right: 75px;
+}
+div.buttons a {
+  position: absolute;
+  top: 3px;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+div.buttons a.first {
+  left: 1px;
+  background: url(/images/button_first.png) no-repeat;  
+}
+div.buttons a.first:hover {
+  background: url(/images/button_first_hover.png) no-repeat;  
+}
+div.buttons a.previous {
+  left: 18px;
+  background: url(/images/button_previous.png) no-repeat;  
+}
+div.buttons a.previous:hover {
+  background: url(/images/button_previous_hover.png) no-repeat;  
+}
+div.buttons a.next {
+  left: 35px;
+  background: url(/images/button_next.png) no-repeat;  
+}
+div.buttons a.next:hover {
+  background: url(/images/button_next_hover.png) no-repeat;  
+}
+div.buttons a.last {
+  left: 52px;
+  background: url(/images/button_last.png) no-repeat;  
+}
+div.buttons a.last:hover {
+  background: url(/images/button_last_hover.png) no-repeat;  
+}
+
+div.file {
   width: 96%;
   margin: 0 2%;
-      }
+}
 
-  h3.file {
-    height: 22px;
-    margin-bottom: 0;
-    border: 1px outset black;
-    padding: 3px 4px 0px 5px;
-    background: url(/images/tab.png) repeat-x;
-    font-size: 1em;
-    font-weight: normal;
-  }
-  
-  h3.file a {
-    float: right;
-    margin-top: 1px;
-    display: block;
-  }
+h3.file {
+  height: 22px;
+  margin-bottom: 0;
+  border: 1px outset black;
+  padding: 3px 4px 0px 5px;
+  background: url(/images/tab.png) repeat-x;
+  font-size: 1em;
+  font-weight: normal;
+}
 
-  div.code table {
-    width: 96%;
-    margin: 0 2%;
-    border-collapse: true;
-    border-spacing: 0;
-    border: 0;
-  }
-  div.code table tr:hover td {
-    background-color: white;
-    color: black;
-  }
-  td.line_number {
-    text-align: right;
-    border: 0;
-    border-right: 1px solid #666;
-    padding: 0 0.2em;
-    font-size: 0.9em;
-  }
-  tr.normal {
-    background-color: black;
-    color: #999;
-  }
-  tr.normal td.line_number {
-  }
-  tr.plus {
-    background-color: #000020;
-    color: #ccd;
-  }
-  tr.plus td.line_number {
-    font-weight: bold;
-  }
-  tr.minus {
-    background-color: #200000;
-    color: #899;
-  }
-  tr.minus td.line_number {
-  }
-  td pre {
-    margin: 0px;
-  }
-      div.code ol {
-  width: 90%;
-  margin: 0;
-  padding-left: 10%;
-  text-align: left;
-  color: white;
-      }
+h3.file a {
+  float: right;
+  margin-top: 1px;
+  display: block;
+}
 
-      div.code div.lines {
-  width: 95%;
+div.code table {
+  width: 96%;
+  margin: 0 2%;
+  border-collapse: true;
+  border-spacing: 0;
+  border: 0;
+}
+div.code table tr:hover td {
+  background-color: white;
+  color: black;
+}
+td.line_number {
+  text-align: right;
+  border: 0;
+  border-right: 1px solid #666;
+  padding: 0 0.2em;
+  font-size: 0.9em;
+}
+tr.normal {
   background-color: black;
-  color: white;
-      }
+  color: #999;
+}
+tr.normal td.line_number {
+}
+tr.plus {
+  background-color: #000020;
+  color: #ccd;
+}
+tr.plus td.line_number {
+  font-weight: bold;
+}
+tr.minus {
+  background-color: #200000;
+  color: #899;
+}
+tr.minus td.line_number {
+}
+td pre {
+  margin: 0px;
+}
+

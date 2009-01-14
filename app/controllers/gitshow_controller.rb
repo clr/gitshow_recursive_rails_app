@@ -9,10 +9,17 @@ class GitshowController < ApplicationController
     else
       @current_commit = @first_commit
     end
-    @previous_commit = @commits[ @commits.index( @current_commit ) - 1 ]
-    @next_commit     = @commits[ @commits.index( @current_commit ) + 1 ]
+    if ( @current_commit == @first_commit )
+      @first_commit    = nil
+    else
+      @previous_commit = @commits[ @commits.index( @current_commit ) - 1 ]
+    end
+    if ( @current_commit == @last_commit )
+      @last_commit     = nil
+    else 
+      @next_commit     = @commits[ @commits.index( @current_commit ) + 1 ]
+    end
     @diffs           = @current_commit.diffs
-#raise @first_commit.inspect
   end
 
 end
