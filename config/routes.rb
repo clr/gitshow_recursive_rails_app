@@ -1,4 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  map.gitshow 'gitshow/:id', :controller => 'commits', :action => 'get'
+  map.root :controller => 'commits', :action => 'get'
 end

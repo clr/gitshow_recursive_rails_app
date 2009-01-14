@@ -10,25 +10,16 @@
       var select   = $( '#commit_selector' );
       var options  = $( '#commit_selector > option' );
       var button   = $( "<div class='commit_selector'>commits</div>" );
-      var selector = $( "<ul class='commit_selector'></ul>" );
+      var selector = $( "<ul id='commit_list' class='commit_selector' style='display:none'></ul>" );
       options.each( function( i, option ){ 
         option = $( option );
-        selector.append( "<li><a href='#' onclick='document.location=\"" + option.attr( 'id' ) + "\"'>" + option.html() + "</a></li>" );
+        selector.append( "<li><a href='" + option.attr( 'id' ) + "'>" + option.html() + "</a></li>" );
       } );
-      select.replaceWith( div );
-      selector.appendAfter( div );
+      $( button ).click( function(){ $( '#commit_list' ).toggle(); } );
+      select.replaceWith( button );
+      button.after( selector );
     } );
   %body
-    .toolbar
-      %select#commit_selector
-        - @commits.each do |commit|
-          %option{ :id => commit.id }
-            = commit.message
-      .buttons
-        %a.first
-        %a.previous
-        %a.next
-        %a.last
     .content
       %p
         %strong message:
@@ -40,4 +31,14 @@
             = diff.b_path
           .code{ :style => 'display:none' }
             = diff_to_html diff.diff
+    .toolbar
+      %select#commit_selector
+        - @commits.each do |commit|
+          %option{ :id => commit.id }
+            = commit.message
+      .buttons
+        = link_to '', gitshow_url( :id => @first_commit.id ), :class => 'first' if @first_commit
+        = link_to '', gitshow_url( :id => @previous_commit.id ), :class => 'previous' if @previous_commit
+        = link_to '', gitshow_url( :id => @next_commit.id ), :class => 'next' if @next_commit
+        = link_to '', gitshow_url( :id => @last_commit.id ), :class => 'last' if @last_commit
 
